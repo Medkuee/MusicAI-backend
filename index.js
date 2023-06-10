@@ -64,7 +64,7 @@ app.get("/getusers", async (req, res) => {
 })
 
 app.get("/profile", async (req, res) => {
-  const token = req.headers.authorization.split(" ")[1] // assuming the token is sent as a Bearer token
+  const token = req.headers.authorization.split(" ")[1] 
   try {
     const userId = await findUserByToken(token)
     const user = await prisma.user.findUnique({
@@ -81,7 +81,7 @@ app.get("/profile", async (req, res) => {
   }
 })
 app.post("/createMusic", async (req, res) => {
-  const token = req.headers.authorization.split(" ")[1] // assuming the token is sent as a Bearer token
+  const token = req.headers.authorization.split(" ")[1] 
   try {
     const { data } = req.body
     console.log("data", data)
@@ -98,7 +98,7 @@ app.post("/createMusic", async (req, res) => {
 app.get("/music/:id", async (req, res) => {
   const { id } = req.params
   console.log("id", id)
-  const token = req.headers.authorization.split(" ")[1] // assuming the token is sent as a Bearer token
+  const token = req.headers.authorization.split(" ")[1] 
   try {
     const userId = await findUserByToken(token)
     const music = await prisma.music.findUnique({
